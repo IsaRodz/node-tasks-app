@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tasks</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <style>
+        *,
+        input,
+        textarea,
+        button {
+            font-family: Roboto
+        }
+
+        .input-field label {
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body class="grey lighten-4">
+    <nav class="white">
+        <div class="container">
+            <a href="#" class="brand-logo 
+            teal-text darken-3">Tasks</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col m6 s12">
+                <table class="left-align">
+                    <tr>
+                        <!-- <th>ID</th> -->
+                        <th>Title</th>
+                        <th>Level</th>
+                    </tr>
+                    <% for (var i = 0; i < news.length; i++) { %>
+                    <tr>
+                        <!-- <td> <%= news[i].id %> </td> -->
+                        <td> <%= news[i].title %> </td>
+                        <td> <%= news[i].level %> </td>
+                    </tr>
+                    <% } %>
+
+                </table>
+            </div>
+
+            <div class="col m6 s12">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="card-title">
+                            Add Tasks
+                        </div>
+                        <form id="form" action="/insert" method="POST">
+                            <div class="input-field">
+                                <input type="text" name="title">
+                                <label for="">Title</label>
+                            </div>
+                            <div class="input-field">
+                                <select name="level">
+                                    <option value="high"> High </option>
+                                    <option value="medium" selected> Medium </option>
+                                    <option value="low"> Low </option>
+                                </select>
+                                <label for="">Level</label>
+                            </div>
+                            <div class="input-field">
+                                <button id="submitBtn" type="submit" class="btn">Save</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+<script>
+    M.AutoInit();
+
+    // form.onsubmit = function (e) {
+    //     e.preventDefault();
+    //     submitBtn.setAttribute('disabled', true);
+    //     config = {
+    //         method: this.method,
+    //         body: new FormData(this)
+    //     };
+    //     fetch(this.action, config)
+    //         .then(response => response.text())
+    //         .then(result => {
+    //             console.log(result)
+    //             M.toast({
+    //                 html: 'Datos insertados correctamente'
+    //             })
+    //         })
+
+    // }
+</script>
+
+</html>
